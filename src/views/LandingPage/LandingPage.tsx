@@ -20,17 +20,15 @@ const LandingPage: React.FC = () => {
             <S.TableInfo></S.TableInfo>
           </S.TableColumn>
           <S.TableColumn>
-            <S.TableItem>Camera1</S.TableItem>
-            <S.TableItem>Fabricante1</S.TableItem>
-            <S.TableItem>134134134l1</S.TableItem>
             <S.TableItem>
-              <Button width="80px" height="30px" title="Excluir" />
+              <S.TableContent>Camera1</S.TableContent>
             </S.TableItem>
-          </S.TableColumn>
-          <S.TableColumn>
-            <S.TableItem>Camera1</S.TableItem>
-            <S.TableItem>Fabricante1</S.TableItem>
-            <S.TableItem>134134134l1</S.TableItem>
+            <S.TableItem>
+              <S.TableContent>Fabrricante</S.TableContent>
+            </S.TableItem>
+            <S.TableItem>
+              <S.TableContent>134151464fsadfs</S.TableContent>
+            </S.TableItem>
             <S.TableItem>
               <Button width="80px" height="30px" title="Excluir" />
             </S.TableItem>
@@ -40,7 +38,7 @@ const LandingPage: React.FC = () => {
           <Button height="40px" width="150px" title="Adicionar Câmera" />
         </S.ButtonContainer>
       </S.CenterDiv>
-      <Modal />
+      {/* <Modal /> */}
     </S.LandingPageWrapper>
   );
 };

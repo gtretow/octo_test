@@ -21,12 +21,12 @@ export const NavbarItem = styled.li`
 
 export const Link = styled.a`
   text-decoration: none;
-  color: black;
+  color: ${(props) => props.theme.colors.white};
   font-size: ${(props) => props.theme.fontSizes.md};
   transition: all 250ms linear 0s;
   cursor: pointer;
 
   &:hover {
-    color: ${(props) => props.theme.colors.white};
+    color: rgba(255, 255, 255, 0.5);
   }
 `;

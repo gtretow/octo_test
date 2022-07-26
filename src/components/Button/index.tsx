@@ -5,12 +5,16 @@ interface Props {
   height: string;
 }
 
-export const ButtonWrapper = styled.div``;
+export const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+`;
 
 export const Button = styled.button<Props>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
-  background: ${(props) => props.theme.colors.primary[700]};
+  background: ${(props) => props.theme.colors.primary[600]};
   border-radius: 5px;
   display: inline-block;
   text-decoration: none;
@@ -26,6 +30,6 @@ export const Button = styled.button<Props>`
 
 export const Paragraph = styled.p`
   font-size: ${(props) => props.theme.fontSizes.sm};
-  color: ${(props) => props.theme.colors.gray[700]};
+  color: ${(props) => props.theme.colors.white};
   font-weight: 600;
 `;
