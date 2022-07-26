@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from ".";
+import Button from "../../components/Button/Button";
 
 const LandingPage: React.FC = () => {
   return (
@@ -22,7 +23,7 @@ const LandingPage: React.FC = () => {
             <S.TableItem>Fabricante1</S.TableItem>
             <S.TableItem>134134134l1</S.TableItem>
             <S.TableItem>
-              <button>Excluir</button>
+              <Button width="80px" height="30px" title="Excluir" />
             </S.TableItem>
           </S.TableColumn>
           <S.TableColumn>
@@ -30,12 +31,12 @@ const LandingPage: React.FC = () => {
             <S.TableItem>Fabricante1</S.TableItem>
             <S.TableItem>134134134l1</S.TableItem>
             <S.TableItem>
-              <button>Excluir</button>
+              <Button width="80px" height="30px" title="Excluir" />
             </S.TableItem>
           </S.TableColumn>
         </S.TableComponent>
         <S.ButtonContainer>
-          <button>Adicionar Câmera</button>
+          <Button height="40px" width="150px" title="Adicionar Câmera" />
         </S.ButtonContainer>
       </S.CenterDiv>
     </S.LandingPageWrapper>
