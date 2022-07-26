@@ -1,12 +1,14 @@
 import React from "react";
 import * as S from ".";
 
-type Props = {};
+type Props = {
+  id: string;
+};
 
 const SelectMenu = (props: Props) => {
   return (
     <S.SelectWrapper>
-      <S.Select>
+      <S.Select id={props.id}>
         <S.Options>item1</S.Options>
         <S.Options>item2</S.Options>
         <S.Options>item3</S.Options>

@@ -25,10 +25,10 @@ export const Options = styled.option``;
 export const CustomArrow = styled.span`
   background: #3b3c47;
   display: block;
-  height: 100%;
+  height: 47px;
   width: 4rem;
   position: absolute;
-  top: 0;
+  top: 5px;
   right: 20px;
   pointer-events: none;
 
