@@ -1,8 +1,12 @@
 import React from "react";
-import { HomeWrapper } from ".";
+import * as S from ".";
 
 const LandingPage: React.FC = () => {
-  return <HomeWrapper>aloalo</HomeWrapper>;
+  return (
+    <S.LandingPageWrapper>
+      <S.Container>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</S.Container>
+    </S.LandingPageWrapper>
+  );
 };
 
 export default LandingPage;

@@ -1,10 +1,9 @@
-import React from "react";
 import { DefaultTheme } from "styled-components";
 
 export const theme: DefaultTheme = {
   colors: {
     primary: {
-      700: "#996DFF",
+      700: "#A88FD4",
     },
     secondary: {
       700: "#FBA94C",
@@ -25,17 +24,10 @@ export const theme: DefaultTheme = {
     },
     white: "#FFFFFF",
   },
-  fonts: {
-    heading: "Roboto_700Bold",
-    body: "Roboto_400Regular",
-  },
   fontSizes: {
-    xs: 12,
-    sm: 14,
-    md: 16,
-    lg: 20,
-  },
-  sizes: {
-    14: 56,
+    xs: "12px",
+    sm: "14px",
+    md: "16px",
+    lg: "20px",
   },
 };
