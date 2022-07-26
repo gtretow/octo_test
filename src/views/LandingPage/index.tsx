@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { theme } from "../../styles/base";
 
 export const LandingPageWrapper = styled.main`
   width: 100vw;
@@ -19,6 +18,7 @@ export const CenterDiv = styled.div`
   background: ${(props) => props.theme.colors.white};
   height: 900px;
   box-shadow: 5px 5px 5px 5px lightgray;
+  border-radius: 5px;
 `;
 
 export const Container = styled.div`
@@ -46,6 +46,11 @@ export const TableColumn = styled.tr`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  transition: all 250ms linear 0s;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.gray[100]};
+  }
 `;
 
 export const TableItem = styled.td`
@@ -55,6 +60,7 @@ export const TableItem = styled.td`
   color: ${(props) => props.theme.colors.gray[700]};
   font-size: ${(props) => props.theme.fontSizes.sm};
   border: 1px solid #ddd;
+
   padding: 8px;
   padding-top: 30px;
 `;

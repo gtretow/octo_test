@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as S from ".";
+import Button from "../Button/Button";
 import SelectMenu from "../SelectMenu/SelectMenu";
 
 interface props {}
@@ -8,23 +9,33 @@ const Modal = (props: props) => {
   return (
     <S.ModalWrapper>
       <S.Modal>
+        <S.CameraHeader>
+          <h1>Cadastrar nova câmera</h1>
+          <p>X</p>
+        </S.CameraHeader>
         <S.Form>
-          <div className="fieldset">
-            <label htmlFor="text1">Text</label>
-            <input type="text" id="text1" placeholder="Field Text" />
-          </div>
+          <S.FieldSet>
+            <S.Label>
+              <S.Span>Escolha um nome para sua nova câmera. </S.Span>
+              <S.Input placeholder="Nome" type="text" id="text1" />
+            </S.Label>
+          </S.FieldSet>
 
-          <div className="fieldset">
-            <label htmlFor="text1">Text</label>
-            <input type="text" id="text1" placeholder="Field Text" />
-          </div>
-          <div>
-            <label htmlFor="selectMenu">Text</label>
-            <SelectMenu id="selectMenu" />
-          </div>
-          <div className="fieldset">
-            <button type="submit">Submit Form</button>
-          </div>
+          <S.FieldSet>
+            <S.Label>
+              <S.Span>Preencha o número de série da sua câmera. </S.Span>
+              <S.Input type="text" id="text1" placeholder="Número de Série" />
+            </S.Label>
+          </S.FieldSet>
+          <S.FieldSet>
+            <S.Label>
+              <S.Span>Selecione o fabricante da sua câmera </S.Span>
+              <SelectMenu id="selectMenu" />
+            </S.Label>
+          </S.FieldSet>
+          <S.FieldSet>
+            <Button title="Criar" height="40px" width="150px" />
+          </S.FieldSet>
         </S.Form>
       </S.Modal>
     </S.ModalWrapper>

@@ -1,19 +1,21 @@
 import styled from "styled-components";
 
 export const SelectWrapper = styled.div`
-  width: 200px;
+  width: 300px;
   position: relative;
+  margin-left: 20px;
 `;
 
 export const Select = styled.select`
   font-size: 1.5rem;
   padding: 1em 5em 1em 1.5em;
-  background: #4d5061;
-  color: white;
+  background: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.gray[700]};
   border: 0;
   margin-top: 5px;
-
-  width: 180px;
+  width: 280px;
+  height: 60px;
+  border-radius: 5px;
 
   option {
     width: 50px;
@@ -23,10 +25,10 @@ export const Select = styled.select`
 export const Options = styled.option``;
 
 export const CustomArrow = styled.span`
-  background: #3b3c47;
+  background: ${(props) => props.theme.colors.primary[600]};
   display: block;
-  height: 47px;
-  width: 4rem;
+  height: 60px;
+  width: 4.5rem;
   position: absolute;
   top: 5px;
   right: 20px;

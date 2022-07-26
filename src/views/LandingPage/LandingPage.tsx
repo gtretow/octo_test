@@ -38,7 +38,7 @@ const LandingPage: React.FC = () => {
           <Button height="40px" width="150px" title="Adicionar Câmera" />
         </S.ButtonContainer>
       </S.CenterDiv>
-      {/* <Modal /> */}
+      <Modal />
     </S.LandingPageWrapper>
   );
 };
