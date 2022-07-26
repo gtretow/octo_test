@@ -1,6 +1,7 @@
 import React from "react";
 import * as S from ".";
 import Button from "../../components/Button/Button";
+import Modal from "../../components/Modal/Modal";
 
 const LandingPage: React.FC = () => {
   return (
@@ -39,6 +40,7 @@ const LandingPage: React.FC = () => {
           <Button height="40px" width="150px" title="Adicionar Câmera" />
         </S.ButtonContainer>
       </S.CenterDiv>
+      <Modal />
     </S.LandingPageWrapper>
   );
 };
