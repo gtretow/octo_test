@@ -13,13 +13,25 @@ const LandingPage: React.FC = () => {
   const [openCameraModal, setOpenCameraModal] = useState<boolean>(false);
   const [cameras, setCameras] = useState<CameraProps[]>([]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (cameras) {
+      return;
+    }
 
-  function deleteCameraEntry(params: string) {}
+    //getCamerasInfo
+  }, []);
 
-  function createCamera(params: object) {}
+  function deleteCameraEntry() {
+    return;
+  }
 
-  function handleModal() {}
+  function createCamera() {
+    return;
+  }
+
+  function handleModal() {
+    setOpenCameraModal(!openCameraModal);
+  }
 
   return (
     <S.LandingPageWrapper>
@@ -48,7 +60,7 @@ const LandingPage: React.FC = () => {
             </S.TableItem>
             <S.TableItem>
               <Button
-                action={() => {}}
+                action={deleteCameraEntry}
                 width="80px"
                 height="30px"
                 title="Excluir"
@@ -58,14 +70,19 @@ const LandingPage: React.FC = () => {
         </S.TableComponent>
         <S.ButtonContainer>
           <Button
-            action={() => {}}
+            action={handleModal}
             height="40px"
             width="150px"
             title="Adicionar Câmera"
           />
         </S.ButtonContainer>
       </S.CenterDiv>
-      {/* <Modal /> */}
+      {openCameraModal && (
+        <Modal
+          handleCameraModel={handleModal}
+          confirmCameraCreation={createCamera}
+        />
+      )}
     </S.LandingPageWrapper>
   );
 };

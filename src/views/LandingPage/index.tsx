@@ -8,6 +8,7 @@ export const LandingPageWrapper = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 0;
 `;
 
 export const CenterDiv = styled.div`

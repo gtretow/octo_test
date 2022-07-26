@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, MouseEventHandler } from "react";
 import * as S from ".";
 import Button from "../Button/Button";
 import SelectMenu from "../SelectMenu/SelectMenu";
 
-interface props {}
+interface props {
+  handleCameraModel: MouseEventHandler;
+  confirmCameraCreation: MouseEventHandler;
+}
 
-const Modal = (props: props) => {
+const Modal = ({ handleCameraModel, confirmCameraCreation }: props) => {
   return (
     <S.ModalWrapper>
       <S.Modal>
         <S.CameraHeader>
           <h1>Cadastrar nova câmera</h1>
-          <p>X</p>
+          <p onClick={handleCameraModel}>X</p>
         </S.CameraHeader>
         <S.Form>
           <S.FieldSet>
@@ -34,7 +37,12 @@ const Modal = (props: props) => {
             </S.Label>
           </S.FieldSet>
           <S.FieldSet>
-            <Button title="Criar" height="40px" width="150px" />
+            <Button
+              action={confirmCameraCreation}
+              title="Criar"
+              height="40px"
+              width="150px"
+            />
           </S.FieldSet>
         </S.Form>
       </S.Modal>
