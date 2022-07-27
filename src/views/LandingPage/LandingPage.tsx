@@ -25,8 +25,9 @@ const LandingPage: React.FC = () => {
     return;
   }
 
-  function createCamera() {
-    return;
+  function createCamera(data: any) {
+    console.log("data=>>>", data);
+    return handleModal();
   }
 
   function handleModal() {

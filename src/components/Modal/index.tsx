@@ -111,3 +111,8 @@ export const CameraHeader = styled.div`
     }
   }
 `;
+
+export const ErrorMessage = styled.span`
+  color: ${(props) => props.theme.colors.red[700]};
+  font-size: ${(props) => props.theme.fontSizes.sm};
+`;

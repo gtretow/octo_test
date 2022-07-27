@@ -6,8 +6,8 @@ export const theme: DefaultTheme = {
       700: "#312450",
       600: "#7159c1",
     },
-    secondary: {
-      700: "#FBA94C",
+    red: {
+      700: "#e53232",
     },
     green: {
       700: "#00875F",
