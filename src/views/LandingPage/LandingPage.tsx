@@ -11,7 +11,18 @@ interface CameraProps {
 
 const LandingPage: React.FC = () => {
   const [openCameraModal, setOpenCameraModal] = useState<boolean>(false);
-  const [cameras, setCameras] = useState<CameraProps[]>([]);
+  const [cameras, setCameras] = useState<CameraProps[]>([
+    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
+    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
+    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
+    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
+    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
+    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
+    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
+    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
+    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
+    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
+  ]);
 
   useEffect(() => {
     if (cameras) {
@@ -42,33 +53,43 @@ const LandingPage: React.FC = () => {
           Todas suas câmeras cadastradas serão listadas abaixo:
         </S.Paragraph>
         <S.Container></S.Container>
-        <S.TableComponent>
-          <S.TableColumn>
-            <S.TableInfo>Nome da câmera</S.TableInfo>
-            <S.TableInfo>Fabricante</S.TableInfo>
-            <S.TableInfo>Número de Série</S.TableInfo>
-            <S.TableInfo></S.TableInfo>
-          </S.TableColumn>
-          <S.TableColumn>
-            <S.TableItem>
-              <S.TableContent>Camera1</S.TableContent>
-            </S.TableItem>
-            <S.TableItem>
-              <S.TableContent>Fabrricante</S.TableContent>
-            </S.TableItem>
-            <S.TableItem>
-              <S.TableContent>134151464fsadfs</S.TableContent>
-            </S.TableItem>
-            <S.TableItem>
-              <Button
-                action={deleteCameraEntry}
-                width="80px"
-                height="30px"
-                title="Excluir"
-              />
-            </S.TableItem>
-          </S.TableColumn>
-        </S.TableComponent>
+        <S.InfiniteTable>
+          <S.TableComponent>
+            <S.TableHead>
+              <S.TableColumn>
+                <S.TableInfo>Nome da câmera</S.TableInfo>
+                <S.TableInfo>Fabricante</S.TableInfo>
+                <S.TableInfo>Número de Série</S.TableInfo>
+                <S.TableInfo></S.TableInfo>
+              </S.TableColumn>
+            </S.TableHead>
+
+            {cameras.map((items, idx) => {
+              return (
+                <S.TableColumn key={idx}>
+                  <S.TableItem>
+                    <S.TableContent>{items.name}</S.TableContent>
+                  </S.TableItem>
+                  <S.TableItem>
+                    <S.TableContent>{items.manufacturer}</S.TableContent>
+                  </S.TableItem>
+                  <S.TableItem>
+                    <S.TableContent>{items.serialNumber}</S.TableContent>
+                  </S.TableItem>
+                  <S.TableItem>
+                    <Button
+                      action={deleteCameraEntry}
+                      width="80px"
+                      height="30px"
+                      title="Excluir"
+                    />
+                  </S.TableItem>
+                </S.TableColumn>
+              );
+            })}
+          </S.TableComponent>
+        </S.InfiniteTable>
+
         <S.ButtonContainer>
           <Button
             action={handleModal}

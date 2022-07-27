@@ -37,13 +37,13 @@ export const TableComponent = styled.table`
   display: flex;
   flex-direction: column;
   background: ${(props) => props.theme.colors.white};
-  width: 80%;
-  height: 600px;
+  width: 100%;
   padding-bottom: 20px;
+  table-layout: fixed;
+  height: 400px;
 `;
 
 export const TableColumn = styled.tr`
-  min-height: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -56,14 +56,18 @@ export const TableColumn = styled.tr`
 
 export const TableItem = styled.td`
   width: 100%;
-  height: 100%;
+  height: 80px;
   text-align: left;
   color: ${(props) => props.theme.colors.gray[700]};
   font-size: ${(props) => props.theme.fontSizes.sm};
-  border: 1px solid #ddd;
-
+  border: 1px solid ${(props) => props.theme.colors.gray[200]};
   padding: 8px;
   padding-top: 30px;
+`;
+
+export const TableHead = styled.thead`
+  position: sticky;
+  top: 0;
 `;
 
 export const TableInfo = styled.th`
@@ -98,4 +102,12 @@ export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const InfiniteTable = styled.div`
+  height: 400px;
+  overflow-y: auto;
+  width: 70%;
+  scrollbar-width: thin;
+  scrollbar-color: ${(props) => props.theme.colors.primary[600]} lightgray;
 `;
