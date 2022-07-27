@@ -55,7 +55,7 @@ export const TableColumn = styled.tr`
 `;
 
 export const TableItem = styled.td`
-  width: 100%;
+  width: 25%;
   height: 80px;
   text-align: left;
   color: ${(props) => props.theme.colors.gray[700]};
@@ -89,13 +89,16 @@ export const Paragraph = styled.p`
 
 export const TableContent = styled.p`
   align-items: center;
-  display: flex;
   margin-top: 7px;
   font-size: ${(props) => props.theme.fontSizes.sm};
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  display: block;
 `;
 
 export const ButtonContainer = styled.div`
-  margin-top: 20px;
   background: ${(props) => props.theme.colors.white};
   width: 80%;
   height: 150px;
@@ -105,9 +108,9 @@ export const ButtonContainer = styled.div`
 `;
 
 export const InfiniteTable = styled.div`
-  height: 400px;
+  height: 500px;
   overflow-y: auto;
-  width: 70%;
+  width: 1000px;
   scrollbar-width: thin;
   scrollbar-color: ${(props) => props.theme.colors.primary[600]} lightgray;
 `;
