@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
 import * as S from ".";
 
@@ -8,21 +7,11 @@ type Props = {
   modifyManufacturer: (message: string) => void;
   error?: boolean;
 };
-
-interface Promise {
-  companies: ManufacturersProp[];
-}
-
 interface CameraProps {
   name: string;
   serialNumber: string;
   manufacturer: string;
   id: string;
-}
-
-interface ManufacturersProp {
-  id: string;
-  name: string;
 }
 
 const SelectMenu = ({ id, value, modifyManufacturer, error }: Props) => {

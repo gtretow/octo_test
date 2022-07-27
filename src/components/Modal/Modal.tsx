@@ -1,4 +1,4 @@
-import { useState, MouseEventHandler } from "react";
+import React, { useState, MouseEventHandler } from "react";
 import * as S from ".";
 import Button from "../Button/Button";
 import SelectMenu from "../SelectMenu/SelectMenu";
@@ -8,20 +8,13 @@ interface props {
   confirmCameraCreation: MouseEventHandler;
 }
 
-interface CameraProps {
-  name: string;
-  serialNumber: string;
-  manufacturer: string;
-  id: string;
-}
-
 const Modal = ({ handleCameraModel, confirmCameraCreation }: props) => {
   const [cameraName, setCameraName] = useState<string>("");
   const [manufacturer, setManufacturer] = useState<string>("");
   const [serialNumber, setSerialNumber] = useState<string>("");
   const [error, setError] = useState(false);
 
-  function handleCameraAction(e: any) {
+  function handleCameraAction(e: React.SyntheticEvent) {
     e.preventDefault();
     setError(false);
 
