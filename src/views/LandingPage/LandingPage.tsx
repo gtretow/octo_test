@@ -2,26 +2,24 @@ import React, { useState, useEffect } from "react";
 import * as S from ".";
 import Button from "../../components/Button/Button";
 import Modal from "../../components/Modal/Modal";
+import axios from "axios";
 
 interface CameraProps {
   name: string;
   serialNumber: string;
   manufacturer: string;
+  id: string;
 }
 
 const LandingPage: React.FC = () => {
   const [openCameraModal, setOpenCameraModal] = useState<boolean>(false);
   const [cameras, setCameras] = useState<CameraProps[]>([
-    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
-    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
-    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
-    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
-    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
-    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
-    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
-    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
-    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
-    { name: "teste", manufacturer: "teste", serialNumber: "teste" },
+    {
+      id: "123123",
+      name: "teste",
+      manufacturer: "teste",
+      serialNumber: "teste",
+    },
   ]);
 
   useEffect(() => {
@@ -29,15 +27,40 @@ const LandingPage: React.FC = () => {
       return;
     }
 
+    let response: any;
+
+    try {
+      response = axios.get(`http://localhost:5000/cameraData`);
+    } catch (error) {
+      console.log("error trying to update data", error);
+    }
+
+    setCameras(response);
+
     //getCamerasInfo
   }, []);
 
-  function deleteCameraEntry() {
+  function deleteCameraEntry(id: string) {
+    let response: any;
+    try {
+      response = axios.delete(`http://localhost:5000/customers/${id}`);
+    } catch (error) {
+      console.log("error trying to delete data", error);
+    }
     return;
   }
 
   function createCamera(data: any) {
-    console.log("data=>>>", data);
+    let reponse: any;
+    try {
+      reponse = axios.post(`http://localhost:5000/customers`, [
+        ...cameras,
+        data,
+      ]);
+    } catch (error) {
+      console.log("error trying to create data", error);
+    }
+
     return handleModal();
   }
 
@@ -66,7 +89,7 @@ const LandingPage: React.FC = () => {
 
             {cameras.map((items, idx) => {
               return (
-                <S.TableColumn key={idx}>
+                <S.TableColumn key={items.id}>
                   <S.TableItem>
                     <S.TableContent>{items.name}</S.TableContent>
                   </S.TableItem>
@@ -78,7 +101,7 @@ const LandingPage: React.FC = () => {
                   </S.TableItem>
                   <S.TableItem>
                     <Button
-                      action={deleteCameraEntry}
+                      action={() => deleteCameraEntry(items.id)}
                       width="80px"
                       height="30px"
                       title="Excluir"
