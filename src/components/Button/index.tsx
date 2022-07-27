@@ -3,6 +3,7 @@ import styled from "styled-components";
 interface Props {
   width: string;
   height: string;
+  background?: string;
 }
 
 export const ButtonWrapper = styled.div`
@@ -14,7 +15,10 @@ export const ButtonWrapper = styled.div`
 export const Button = styled.button<Props>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
-  background: ${(props) => props.theme.colors.primary[600]};
+  background: ${(props) =>
+    props.background === "cancel"
+      ? props.theme.colors.red[600]
+      : props.theme.colors.primary[600]};
   border-radius: 5px;
   display: inline-block;
   text-decoration: none;

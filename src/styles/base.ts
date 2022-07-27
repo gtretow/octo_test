@@ -8,6 +8,7 @@ export const theme: DefaultTheme = {
     },
     red: {
       700: "#e53232",
+      600: "#ff523f",
     },
     green: {
       700: "#00875F",

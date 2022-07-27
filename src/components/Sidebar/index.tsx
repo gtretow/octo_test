@@ -25,6 +25,8 @@ export const Link = styled.a`
   font-size: ${(props) => props.theme.fontSizes.md};
   transition: all 250ms linear 0s;
   cursor: pointer;
+  display: flex;
+  margin-left: 15px;
 
   &:hover {
     color: rgba(255, 255, 255, 0.5);

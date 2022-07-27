@@ -96,6 +96,12 @@ export const TableContent = styled.p`
   text-overflow: ellipsis;
   max-width: 100%;
   display: block;
+
+  &:hover {
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-all;
+  }
 `;
 
 export const ButtonContainer = styled.div`

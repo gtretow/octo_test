@@ -7,9 +7,17 @@ type Props = {
   width: string;
   action: MouseEventHandler;
   disableButton?: boolean;
+  color?: string;
 };
 
-const Button = ({ title, height, width, action, disableButton }: Props) => {
+const Button = ({
+  title,
+  height,
+  width,
+  action,
+  disableButton,
+  color,
+}: Props) => {
   return (
     <S.ButtonWrapper>
       <S.Button
@@ -17,6 +25,7 @@ const Button = ({ title, height, width, action, disableButton }: Props) => {
         onClick={action}
         height={height}
         width={width}
+        background={color}
       >
         <S.Paragraph>{title}</S.Paragraph>
       </S.Button>
