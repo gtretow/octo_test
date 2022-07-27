@@ -13,31 +13,23 @@ interface CameraProps {
 
 const LandingPage: React.FC = () => {
   const [openCameraModal, setOpenCameraModal] = useState<boolean>(false);
-  const [cameras, setCameras] = useState<CameraProps[]>([
-    {
-      id: "123123",
-      name: "teste",
-      manufacturer: "teste",
-      serialNumber: "teste",
-    },
-  ]);
+  const [cameras, setCameras] = useState<CameraProps[]>([]);
 
   useEffect(() => {
-    if (cameras) {
-      return;
+    console.log("teste useEffect");
+    async function fetchData() {
+      let response: any;
+
+      try {
+        response = await axios.get(`http://localhost:5000/cameraData`);
+      } catch (error) {
+        console.log("error trying to update data", error);
+      }
+      setCameras(response.data);
     }
 
-    let response: any;
-
-    try {
-      response = axios.get(`http://localhost:5000/cameraData`);
-    } catch (error) {
-      console.log("error trying to update data", error);
-    }
-
-    setCameras(response);
-
-    //getCamerasInfo
+    fetchData();
+    return;
   }, []);
 
   function deleteCameraEntry(id: string) {
@@ -76,41 +68,48 @@ const LandingPage: React.FC = () => {
           Todas suas câmeras cadastradas serão listadas abaixo:
         </S.Paragraph>
         <S.Container></S.Container>
+        {cameras?.length === 0 && (
+          <S.Paragraph>Você não possui nenhuma câmera cadastrada.</S.Paragraph>
+        )}
         <S.InfiniteTable>
-          <S.TableComponent>
-            <S.TableHead>
-              <S.TableColumn>
-                <S.TableInfo>Nome da câmera</S.TableInfo>
-                <S.TableInfo>Fabricante</S.TableInfo>
-                <S.TableInfo>Número de Série</S.TableInfo>
-                <S.TableInfo></S.TableInfo>
-              </S.TableColumn>
-            </S.TableHead>
-
-            {cameras.map((items, idx) => {
-              return (
-                <S.TableColumn key={items.id}>
-                  <S.TableItem>
-                    <S.TableContent>{items.name}</S.TableContent>
-                  </S.TableItem>
-                  <S.TableItem>
-                    <S.TableContent>{items.manufacturer}</S.TableContent>
-                  </S.TableItem>
-                  <S.TableItem>
-                    <S.TableContent>{items.serialNumber}</S.TableContent>
-                  </S.TableItem>
-                  <S.TableItem>
-                    <Button
-                      action={() => deleteCameraEntry(items.id)}
-                      width="80px"
-                      height="30px"
-                      title="Excluir"
-                    />
-                  </S.TableItem>
+          {cameras?.length > 0 && (
+            <S.TableComponent>
+              <S.TableHead>
+                <S.TableColumn>
+                  <S.TableInfo>Nome da câmera</S.TableInfo>
+                  <S.TableInfo>Fabricante</S.TableInfo>
+                  <S.TableInfo>Número de Série</S.TableInfo>
+                  <S.TableInfo></S.TableInfo>
                 </S.TableColumn>
-              );
-            })}
-          </S.TableComponent>
+              </S.TableHead>
+
+              <tbody>
+                {cameras?.map((items, idx) => {
+                  return (
+                    <S.TableColumn key={items.id}>
+                      <S.TableItem>
+                        <S.TableContent>{items.name}</S.TableContent>
+                      </S.TableItem>
+                      <S.TableItem>
+                        <S.TableContent>{items.manufacturer}</S.TableContent>
+                      </S.TableItem>
+                      <S.TableItem>
+                        <S.TableContent>{items.serialNumber}</S.TableContent>
+                      </S.TableItem>
+                      <S.TableItem>
+                        <Button
+                          action={() => deleteCameraEntry(items.id)}
+                          width="80px"
+                          height="30px"
+                          title="Excluir"
+                        />
+                      </S.TableItem>
+                    </S.TableColumn>
+                  );
+                })}
+              </tbody>
+            </S.TableComponent>
+          )}
         </S.InfiniteTable>
 
         <S.ButtonContainer>
