@@ -1,15 +1,9 @@
-## Objetivos
+# Informações pertinentes:
 
-# Requisitos Não Funcionais
+## Como executar:
 
-    A interface gráfica deverá funcionar pelo menos nos navegadores modernos recentes Chrome e Firefox.
+Basta executar npx json-server --watch src/data/cameraData.json
+Para iniciar o mock doo servidor.
 
-    Não é preciso suportar versões antigas dos navegadores.
-
-    A comunicação entre a interface (frontend) e o resto do sistema (backend) deverá ser feita através de uma API JSON.
-
-    Os dados do sistema deverão persistir "restarts" (isto é, deverão salvar os dados em algum banco de dados ou arquivo no computador).
-
-    A interface gráfica deve ser feita em React + Typescript.
-
-    Uso do framework Phoenix (em Elixir) é um diferencial.
+Em seguida basta executar o comando
+npm run dev e entrar no IP mostrado pelo Vite no terminal.
