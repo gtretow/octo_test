@@ -6,7 +6,6 @@ type Props = {
   id: string;
   value: string;
   modifyManufacturer: (message: string) => void;
-  options: Manufacturers[];
   error?: boolean;
 };
 
@@ -52,7 +51,6 @@ const SelectMenu = ({ id, value, modifyManufacturer, error }: Props) => {
         </S.Options>
 
         {options.map((opt, idx) => {
-          console.log("opt", opt);
           return (
             <S.Options value={opt.name} key={idx}>
               {opt.name}

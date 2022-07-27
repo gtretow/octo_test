@@ -10,18 +10,13 @@ interface props {
 }
 
 const Modal = ({ handleCameraModel, confirmCameraCreation }: props) => {
-  let optionsEx = [
-    { name: "opção1" },
-    { name: "opção2" },
-    { name: "opção3" },
-    { name: "opção4" },
-  ];
   const [cameraName, setCameraName] = useState<string>("");
   const [manufacturer, setManufacturer] = useState<string>("");
   const [serialNumber, setSerialNumber] = useState<string>("");
   const [error, setError] = useState(false);
 
-  function handleCameraAction() {
+  function handleCameraAction(e: any) {
+    e.preventDefault();
     setError(false);
 
     if (cameraName.length < 3) {
@@ -40,7 +35,7 @@ const Modal = ({ handleCameraModel, confirmCameraCreation }: props) => {
 
     let newCamera: any = {
       id: unique_id,
-      cameraname: cameraName,
+      name: cameraName,
       manufacturer: manufacturer,
       serialNumber: serialNumber,
     };
@@ -108,7 +103,6 @@ const Modal = ({ handleCameraModel, confirmCameraCreation }: props) => {
               <SelectMenu
                 value={manufacturer}
                 modifyManufacturer={setManufacturer}
-                options={optionsEx}
                 id="selectMenu"
               />
               {manufacturer.length < 3 && error && (
@@ -120,7 +114,7 @@ const Modal = ({ handleCameraModel, confirmCameraCreation }: props) => {
           </S.FieldSet>
           <S.FieldSet>
             <Button
-              action={handleCameraAction}
+              action={(e) => handleCameraAction(e)}
               disableButton={error}
               title="Criar"
               height="40px"

@@ -14,50 +14,50 @@ interface CameraProps {
 const LandingPage: React.FC = () => {
   const [openCameraModal, setOpenCameraModal] = useState<boolean>(false);
   const [cameras, setCameras] = useState<CameraProps[]>([]);
+  const [update, setUpdate] = useState<boolean>(true);
 
   useEffect(() => {
-    console.log("teste useEffect");
+    if (!update) {
+      return;
+    }
+
     async function fetchData() {
       let response: any;
 
       try {
         response = await axios.get(`http://localhost:5000/cameraData`);
       } catch (error) {
-        console.log("error trying to update data", error);
+        return console.log("error trying to update data", error);
       }
       setCameras(response.data);
     }
-
     fetchData();
-    return;
-  }, []);
 
-  function deleteCameraEntry(id: string) {
-    let response: any;
+    return setUpdate(false);
+  }, [update]);
+
+  async function deleteCameraEntry(id: string) {
     try {
-      response = axios.delete(`http://localhost:5000/customers/${id}`);
+      await axios.delete(`http://localhost:5000/cameraData/${id}`);
     } catch (error) {
-      console.log("error trying to delete data", error);
+      return console.log("error trying to delete data", error);
     }
-    return;
+    return setUpdate(true);
   }
 
-  function createCamera(data: any) {
-    let reponse: any;
+  async function createCamera(data: any) {
     try {
-      reponse = axios.post(`http://localhost:5000/customers`, [
-        ...cameras,
-        data,
-      ]);
+      await axios.post(`http://localhost:5000/cameraData`, data);
     } catch (error) {
-      console.log("error trying to create data", error);
+      return console.log("error trying to create data", error);
     }
 
+    setUpdate(true);
     return handleModal();
   }
 
   function handleModal() {
-    setOpenCameraModal(!openCameraModal);
+    return setOpenCameraModal(!openCameraModal);
   }
 
   return (

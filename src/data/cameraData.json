@@ -5,6 +5,24 @@
       "name": "test",
       "manufacturer": "manufacturer test",
       "serialNumber": "919319"
+    },
+    {
+      "id": "b9081989-cc7c-4e88-a317-a15130ab071c",
+      "name": "Camera 1",
+      "manufacturer": "Secure Câmeras Inc",
+      "serialNumber": "D6A54FA5ADSF"
+    },
+    {
+      "id": "9d8e3cf7-d12a-4fc1-af0a-159d0b2072cb",
+      "name": "Teste",
+      "manufacturer": "Surveillance Cams LLC",
+      "serialNumber": "1304U10J13IR1J"
+    },
+    {
+      "id": "24356c7a-2a1d-4ce7-a6b4-4d6f5c6324ce",
+      "name": "Bivi 91",
+      "manufacturer": "Secure Câmeras Inc",
+      "serialNumber": "D3109D109DJ103J"
     }
   ]
 }
