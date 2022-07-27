@@ -1,12 +1,18 @@
-import React, { useState, MouseEventHandler } from "react";
+import { useState, MouseEventHandler } from "react";
 import * as S from ".";
 import Button from "../Button/Button";
 import SelectMenu from "../SelectMenu/SelectMenu";
 import { v4 as uuid } from "uuid";
-
 interface props {
   handleCameraModel: MouseEventHandler;
   confirmCameraCreation: MouseEventHandler;
+}
+
+interface CameraProps {
+  name: string;
+  serialNumber: string;
+  manufacturer: string;
+  id: string;
 }
 
 const Modal = ({ handleCameraModel, confirmCameraCreation }: props) => {

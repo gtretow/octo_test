@@ -4,6 +4,9 @@ import Button from "../../components/Button/Button";
 import Modal from "../../components/Modal/Modal";
 import axios from "axios";
 
+interface Promise {
+  data: CameraProps[];
+}
 interface CameraProps {
   name: string;
   serialNumber: string;
@@ -22,7 +25,7 @@ const LandingPage: React.FC = () => {
     }
 
     async function fetchData() {
-      let response: any;
+      let response: Promise;
 
       try {
         response = await axios.get(`http://localhost:5000/cameraData`);
@@ -45,7 +48,7 @@ const LandingPage: React.FC = () => {
     return setUpdate(true);
   }
 
-  async function createCamera(data: any) {
+  async function createCamera(data: {}) {
     try {
       await axios.post(`http://localhost:5000/cameraData`, data);
     } catch (error) {

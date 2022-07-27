@@ -9,6 +9,10 @@ type Props = {
   error?: boolean;
 };
 
+interface Promise {
+  companies: ManufacturersProp[];
+}
+
 interface CameraProps {
   name: string;
   serialNumber: string;
@@ -16,7 +20,8 @@ interface CameraProps {
   id: string;
 }
 
-export interface Manufacturers {
+interface ManufacturersProp {
+  id: string;
   name: string;
 }
 
