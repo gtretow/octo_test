@@ -48,6 +48,7 @@ export const TableColumn = styled.tr`
   justify-content: space-around;
   align-items: center;
   transition: all 250ms linear 0s;
+  cursor: pointer;
 
   &:hover {
     background-color: ${(props) => props.theme.colors.gray[100]};

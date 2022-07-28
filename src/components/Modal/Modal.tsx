@@ -2,8 +2,6 @@ import React, { useState, MouseEventHandler } from "react";
 import * as S from ".";
 import Button from "../Button/Button";
 import SelectMenu from "../SelectMenu/SelectMenu";
-import { v4 as uuid } from "uuid";
-import DecisionModal from "../DecisionModal/DecisionModal";
 interface props {
   handleCameraModel: MouseEventHandler;
   confirmCameraCreation: MouseEventHandler;
@@ -31,7 +29,7 @@ const Modal = ({ handleCameraModel, confirmCameraCreation }: props) => {
       return setError(true);
     }
 
-    const unique_id = uuid();
+    const unique_id = new Date().valueOf();
 
     let newCamera: any = {
       id: unique_id,

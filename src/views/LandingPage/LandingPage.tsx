@@ -105,7 +105,10 @@ const LandingPage: React.FC = () => {
               <tbody>
                 {cameras?.map((items) => {
                   return (
-                    <S.TableColumn key={items.id}>
+                    <S.TableColumn
+                      onClick={() => openConfirmModal(items.id)}
+                      key={items.id}
+                    >
                       <S.TableItem>
                         <S.TableContent>{items.name}</S.TableContent>
                       </S.TableItem>
