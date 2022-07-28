@@ -3,6 +3,7 @@ import * as S from ".";
 import Button from "../Button/Button";
 import SelectMenu from "../SelectMenu/SelectMenu";
 import { v4 as uuid } from "uuid";
+import DecisionModal from "../DecisionModal/DecisionModal";
 interface props {
   handleCameraModel: MouseEventHandler;
   confirmCameraCreation: MouseEventHandler;

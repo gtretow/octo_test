@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as S from ".";
 import Button from "../../components/Button/Button";
+import DecisionModal from "../../components/DecisionModal/DecisionModal";
 import Modal from "../../components/Modal/Modal";
 import {
   getCameraData,
@@ -8,9 +9,6 @@ import {
   deleteCameraEntry,
 } from "../../Utils/controllers";
 
-interface Promise {
-  data: CameraProps[];
-}
 interface CameraProps {
   name: string;
   serialNumber: string;
@@ -22,6 +20,8 @@ const LandingPage: React.FC = () => {
   const [openCameraModal, setOpenCameraModal] = useState<boolean>(false);
   const [cameras, setCameras] = useState<CameraProps[]>([]);
   const [update, setUpdate] = useState<boolean>(true);
+  const [handleConfirmModal, setHandleConfirmModal] = useState<boolean>(false);
+  const [payloadDeleteData, setPayloadDeleteData] = useState<string>("");
 
   useEffect(() => {
     if (!update) {
@@ -43,12 +43,15 @@ const LandingPage: React.FC = () => {
     return setUpdate(false);
   }, [update]);
 
-  async function removeCamera(id: string) {
+  async function removeCamera() {
+    setHandleConfirmModal(false);
+
     try {
-      await deleteCameraEntry(id);
+      await deleteCameraEntry(payloadDeleteData);
     } catch (error) {
       return console.log("deleteCameraEntry failed", error);
     }
+    setPayloadDeleteData("");
     return setUpdate(true);
   }
 
@@ -65,6 +68,15 @@ const LandingPage: React.FC = () => {
 
   function handleModal() {
     return setOpenCameraModal(!openCameraModal);
+  }
+
+  function openConfirmModal(payload: any) {
+    setPayloadDeleteData(payload);
+    setHandleConfirmModal(!handleConfirmModal);
+  }
+
+  function cancelConfirmModal() {
+    setHandleConfirmModal(false);
   }
 
   return (
@@ -105,7 +117,7 @@ const LandingPage: React.FC = () => {
                       </S.TableItem>
                       <S.TableItem>
                         <Button
-                          action={() => removeCamera(items.id)}
+                          action={() => openConfirmModal(items.id)}
                           width="80px"
                           height="30px"
                           title="Excluir"
@@ -132,6 +144,13 @@ const LandingPage: React.FC = () => {
         <Modal
           handleCameraModel={handleModal}
           confirmCameraCreation={createCamera}
+        />
+      )}
+      {handleConfirmModal && (
+        <DecisionModal
+          textAction="del"
+          handleAction={removeCamera}
+          handleCancel={cancelConfirmModal}
         />
       )}
     </S.LandingPageWrapper>

@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import * as S from ".";
 import Button from "../Button/Button";
 import { FaTrashAlt, FaCheck } from "react-icons/fa";
 
 type Props = {
   textAction: string;
+  handleAction: () => void;
+  handleCancel: () => void;
 };
 
-const DecisionModal = ({ textAction }: Props) => {
+const DecisionModal = ({ textAction, handleAction, handleCancel }: Props) => {
   const [commandAction, setCommandAction] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
 
@@ -26,10 +28,13 @@ const DecisionModal = ({ textAction }: Props) => {
   }, []);
 
   function handleError() {
+    handleCancel();
     setError(false);
   }
 
-  function confirmAction() {}
+  function confirmAction() {
+    handleAction();
+  }
 
   return (
     <S.WrapperModal>

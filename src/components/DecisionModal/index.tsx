@@ -9,6 +9,7 @@ export const WrapperModal = styled.div`
   align-items: center;
   position: fixed;
   background-size: cover;
+  z-index: 3000;
 `;
 
 export const DecisionModal = styled.div`
