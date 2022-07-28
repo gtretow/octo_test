@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import * as S from ".";
 import Button from "../../components/Button/Button";
 import Modal from "../../components/Modal/Modal";
-import axios from "axios";
+import {
+  getCameraData,
+  createNewCameraEntry,
+  deleteCameraEntry,
+} from "../../Utils/controllers";
 
 interface Promise {
   data: CameraProps[];
@@ -25,34 +29,34 @@ const LandingPage: React.FC = () => {
     }
 
     async function fetchData() {
-      let response: Promise;
+      let data: CameraProps[];
 
       try {
-        response = await axios.get(`http://localhost:5000/cameraData`);
+        data = await getCameraData();
       } catch (error) {
-        return console.log("error trying to update data", error);
+        return console.log("getCameraData failed", error);
       }
-      setCameras(response.data);
+      setCameras(data);
     }
     fetchData();
 
     return setUpdate(false);
   }, [update]);
 
-  async function deleteCameraEntry(id: string) {
+  async function removeCamera(id: string) {
     try {
-      await axios.delete(`http://localhost:5000/cameraData/${id}`);
+      await deleteCameraEntry(id);
     } catch (error) {
-      return console.log("error trying to delete data", error);
+      return console.log("deleteCameraEntry failed", error);
     }
     return setUpdate(true);
   }
 
   async function createCamera(data: {}) {
     try {
-      await axios.post(`http://localhost:5000/cameraData`, data);
+      await createNewCameraEntry(data);
     } catch (error) {
-      return console.log("error trying to create data", error);
+      return console.log("createNewCameraEntry failed", error);
     }
 
     setUpdate(true);
@@ -87,7 +91,7 @@ const LandingPage: React.FC = () => {
               </S.TableHead>
 
               <tbody>
-                {cameras?.map((items, idx) => {
+                {cameras?.map((items) => {
                   return (
                     <S.TableColumn key={items.id}>
                       <S.TableItem>
@@ -101,7 +105,7 @@ const LandingPage: React.FC = () => {
                       </S.TableItem>
                       <S.TableItem>
                         <Button
-                          action={() => deleteCameraEntry(items.id)}
+                          action={() => removeCamera(items.id)}
                           width="80px"
                           height="30px"
                           title="Excluir"

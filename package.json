@@ -7,7 +7,8 @@
     "lint": "./node_modules/.bin/eslint .",
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "npx json-server --watch src/data/cameraData.json"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",

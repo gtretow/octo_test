@@ -2,8 +2,7 @@
 
 ## Como executar:
 
-Basta executar npx json-server --watch src/data/cameraData.json
-Para iniciar o mock doo servidor.
+Basta executar npm run server para iniciar o mock doo servidor.
 
 Em seguida basta executar o comando
 npm run dev e entrar no IP mostrado pelo Vite no terminal.
