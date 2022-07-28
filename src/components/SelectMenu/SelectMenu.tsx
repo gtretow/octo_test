@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import * as S from ".";
 
 type Props = {
@@ -53,7 +53,7 @@ const SelectMenu = ({ id, value, modifyManufacturer, error }: Props) => {
         })}
       </S.Select>
       <S.CustomArrow></S.CustomArrow>
-      {error && <span>erro aqui</span>}
+      {error && <span>Por favor, escolha uma das opções disponíveis</span>}
     </S.SelectWrapper>
   );
 };
