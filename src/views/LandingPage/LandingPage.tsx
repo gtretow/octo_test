@@ -82,11 +82,12 @@ const LandingPage: React.FC = () => {
   return (
     <S.LandingPageWrapper>
       <S.CenterDiv>
-        <S.MainHeading>Câmeras Cadastradas</S.MainHeading>
-        <S.Paragraph>
-          Todas suas câmeras cadastradas serão listadas abaixo:
-        </S.Paragraph>
-        <S.Container></S.Container>
+        <S.HeadingContainer>
+          <S.MainHeading>Câmeras Cadastradas</S.MainHeading>
+          <S.Paragraph>
+            Todas suas câmeras cadastradas serão listadas abaixo:
+          </S.Paragraph>
+        </S.HeadingContainer>
         {cameras?.length === 0 && (
           <S.Paragraph>Você não possui nenhuma câmera cadastrada.</S.Paragraph>
         )}

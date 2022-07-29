@@ -17,8 +17,8 @@ export const DecisionModal = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 500px;
-  height: 300px;
+  width: 30%;
+  height: 40%;
   background: ${(props) => props.theme.colors.white};
   position: absolute;
   top: 50%;
@@ -28,7 +28,6 @@ export const DecisionModal = styled.div`
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-  background-clip: padding-box;
 `;
 
 export const Paragraph = styled.p`
@@ -38,12 +37,14 @@ export const Paragraph = styled.p`
 `;
 
 export const ButtonContainer = styled.div`
-  width: 200px;
+  width: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   button {
-    margin-right: 20px;
+    margin-right: 10%;
+    margin-left: 10%;
   }
 `;

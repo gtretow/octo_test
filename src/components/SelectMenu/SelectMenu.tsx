@@ -41,7 +41,7 @@ const SelectMenu = ({ id, value, modifyManufacturer, error }: Props) => {
         onChange={(evt) => modifyManufacturer(evt.target.value)}
         id={id}
       >
-        <S.Options value="Selecione uma opção" disabled hidden>
+        <S.Options value="" disabled hidden>
           Selecione uma opção
         </S.Options>
 

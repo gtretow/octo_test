@@ -9,6 +9,7 @@ export const LandingPageWrapper = styled.main`
   justify-content: center;
   align-items: center;
   z-index: 0;
+  overflow-x: hidden;
 `;
 
 export const CenterDiv = styled.div`
@@ -17,18 +18,22 @@ export const CenterDiv = styled.div`
   align-items: center;
   width: 50%;
   background: ${(props) => props.theme.colors.white};
-  height: 900px;
+  height: 90vh;
   box-shadow: 5px 5px 5px 5px lightgray;
   border-radius: 5px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  margin-left: 10%;
 `;
 
 export const Container = styled.div`
-  display: flex;
-  margin-top: 20px;
+  height: 500px
+  text-align: center;
+  dispay: flex;
 `;
 
 export const MainHeading = styled.h1`
-  margin-top: 20px;
+  margin-top: 50px;
   margin-bottom: 10px;
 `;
 
@@ -62,7 +67,7 @@ export const TableItem = styled.td`
   color: ${(props) => props.theme.colors.gray[700]};
   font-size: ${(props) => props.theme.fontSizes.sm};
   border: 1px solid ${(props) => props.theme.colors.gray[200]};
-  padding: 8px;
+  padding-left: 8px;
   padding-top: 30px;
 `;
 
@@ -77,7 +82,6 @@ export const TableInfo = styled.th`
   text-align: center;
   font-size: ${(props) => props.theme.fontSizes.sm};
   padding-top: 12px;
-  padding-bottom: 12px;
   text-align: left;
   background-color: ${(props) => props.theme.colors.primary[600]};
   color: white;
@@ -95,7 +99,6 @@ export const TableContent = styled.p`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: 100%;
   display: block;
 
   &:hover {
@@ -108,16 +111,24 @@ export const TableContent = styled.p`
 export const ButtonContainer = styled.div`
   background: ${(props) => props.theme.colors.white};
   width: 80%;
-  height: 150px;
+  height: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 15px;
 `;
 
 export const InfiniteTable = styled.div`
-  height: 500px;
+  height: 60%;
   overflow-y: auto;
-  width: 1000px;
+  min-height: 400px;
+  width: 80%;
   scrollbar-width: thin;
   scrollbar-color: ${(props) => props.theme.colors.primary[600]} lightgray;
 `;
+
+export const HeadingContainer = styled.div`
+text-align: center;
+min-height: 120px;
+height: 10%
+` 

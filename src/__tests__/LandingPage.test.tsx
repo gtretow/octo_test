@@ -2,19 +2,14 @@ import React from "react";
 import {
   render,
   screen,
-  fireEvent,
   waitForElementToBeRemoved,
-  cleanup,
-  act,
-  queryByRole,
-  waitFor,
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import LandingPage from "../views/LandingPage/LandingPage";
 import { createNewCameraEntry, deleteCameraEntry } from "../Utils/controllers";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../styles/base";
+import LandingPage from "../views/LandingPage/LandingPage";
 
 describe("LandingPage Component", () => {
   let userMockInfo = {
@@ -24,14 +19,32 @@ describe("LandingPage Component", () => {
     serialNumber: "teste",
   };
 
-  /*   it("Renders correctly", async () => {
+  afterAll(async () => { 
+    await deleteCameraEntry(userMockInfo.id)
+  })
+
+  it("Renders correctly", async () => {
+    
+    render(
+      <ThemeProvider theme={theme}>
+        <LandingPage/>
+      </ThemeProvider>
+    )
+
     expect(
       screen.getByRole("button", { name: /adicionar câmera/i })
     ).toBeTruthy();
   });
- */
+ 
 
-  /*   it("create new camera entry", async () => {
+  it("create new camera entry", async () => {
+
+    render(
+      <ThemeProvider theme={theme}>
+        <LandingPage/>
+      </ThemeProvider>
+    )
+
     await userEvent.click(
       screen.getByRole("button", { name: /Adicionar Câmera/i })
     );
@@ -50,10 +63,21 @@ describe("LandingPage Component", () => {
     await waitForElementToBeRemoved(screen.queryByText("Criar"));
     const id = await screen.getByText("testeJest2");
     expect(id).toBeTruthy();
-  }); */
 
-  /*   it("delete camera info correctly", async () => {
-    await createNewCameraEntry(userMockInfo);
+  }); 
+
+  it("delete camera info correctly", async () => {
+
+    render(
+      <ThemeProvider theme={theme}>
+        <LandingPage/>
+      </ThemeProvider>
+    )
+    
+    try { await createNewCameraEntry(userMockInfo);
+    } catch (error) {
+      console.log(error);
+    }
 
     await userEvent.click(screen.getByText("testeJest"));
     await userEvent.click(screen.getByRole("button", { name: /confirmar/i }));
@@ -61,5 +85,5 @@ describe("LandingPage Component", () => {
     await waitForElementToBeRemoved(screen.queryByText("testeJest"));
 
     expect(screen.queryByText("testeJest")).toBe(null);
-  }); */
+  });
 });

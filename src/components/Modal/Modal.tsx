@@ -62,10 +62,9 @@ const Modal = ({ handleCameraModel, confirmCameraCreation }: props) => {
             <S.Label>
               <S.Span>Escolha um nome para sua nova câmera. </S.Span>
               <S.Input
-                maxLength="50"
+                maxLength={50}
                 placeholder="Nome"
                 type="text"
-                id="text1"
                 onChange={(e) => setCameraName(e.target.value)}
                 value={cameraName}
               />
@@ -81,9 +80,8 @@ const Modal = ({ handleCameraModel, confirmCameraCreation }: props) => {
             <S.Label>
               <S.Span>Preencha o número de série da sua câmera. </S.Span>
               <S.Input
-                maxLength="16"
+                maxLength={16}
                 type="text"
-                id="text1"
                 placeholder="Número de Série"
                 onChange={(e) => editSerialNumber(e.target.value)}
                 value={serialNumber}

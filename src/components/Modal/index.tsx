@@ -24,6 +24,12 @@ export const Modal = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
   background-clip: padding-box;
+
+  @media(max-height: 600px) {
+    height: 90%;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+  }
 `;
 
 export const Form = styled.form`
@@ -42,6 +48,10 @@ export const FieldSet = styled.div`
   flex-direction: column;
   width: 40%;
   margin-bottom: 10%;
+
+  @media(max-height: 600px) {
+    margin-bottom: 5%;
+  }
 `;
 
 export const Input = styled.input`
