@@ -31,20 +31,6 @@ describe("LandingPage Component", () => {
   });
  */
 
-  it("get camera info correctly", async () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <LandingPage />
-      </ThemeProvider>
-    );
-
-    await createNewCameraEntry(userMockInfo);
-
-    await waitFor(() => screen.queryByText("testeJest"));
-
-    await expect(screen.queryByText("testeJest")).toBeInTheDocument();
-  });
-
   /*   it("create new camera entry", async () => {
     await userEvent.click(
       screen.getByRole("button", { name: /Adicionar Câmera/i })
