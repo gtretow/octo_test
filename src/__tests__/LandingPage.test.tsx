@@ -7,6 +7,7 @@ import {
   cleanup,
   act,
   queryByRole,
+  waitFor,
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -23,27 +24,25 @@ describe("LandingPage Component", () => {
     serialNumber: "teste",
   };
 
-  beforeEach(async () => {
+  /*   it("Renders correctly", async () => {
+    expect(
+      screen.getByRole("button", { name: /adicionar câmera/i })
+    ).toBeTruthy();
+  });
+ */
+
+  it("get camera info correctly", async () => {
     render(
       <ThemeProvider theme={theme}>
         <LandingPage />
       </ThemeProvider>
     );
-  });
 
-  afterEach(async () => {
-    await deleteCameraEntry("1234");
-  });
-
-  it("Renders correctly", async () => {
-    expect(
-      screen.getByRole("button", { name: /adicionar câmera/i })
-    ).toBeTruthy();
-  });
-
-  it("get camera info correctly", async () => {
     await createNewCameraEntry(userMockInfo);
-    expect(screen.queryByText("testeJest")).toBe(true);
+
+    await waitFor(() => screen.queryByText("testeJest"));
+
+    await expect(screen.queryByText("testeJest")).toBeInTheDocument();
   });
 
   /*   it("create new camera entry", async () => {

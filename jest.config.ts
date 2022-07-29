@@ -3,4 +3,5 @@ export default {
     "^.+\\.tsx?$": "ts-jest",
   },
   testEnvironment: "jest-environment-jsdom",
+  setupFilesAfterEnv: ["<rootDir>/setupTests.ts"],
 };
