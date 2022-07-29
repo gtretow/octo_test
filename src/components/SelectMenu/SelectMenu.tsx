@@ -36,11 +36,12 @@ const SelectMenu = ({ id, value, modifyManufacturer, error }: Props) => {
   return (
     <S.SelectWrapper>
       <S.Select
+        data-testid="dropdown"
         value={value}
         onChange={(evt) => modifyManufacturer(evt.target.value)}
         id={id}
       >
-        <S.Options value="" disabled hidden>
+        <S.Options value="Selecione uma opção" disabled hidden>
           Selecione uma opção
         </S.Options>
 
