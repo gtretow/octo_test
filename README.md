@@ -1,14 +1,23 @@
 # Informações pertinentes:
 
-## Como executar:
+## Teste feito para a empresa Octos.
 
-Basta executar npm run server para iniciar o mock doo servidor.
 
-Em seguida basta executar o comando
+## Como executar comandos principais:
+
+Server: npm run server
+Front: npm run dev
+Test: npm run test
+
+Basta executar npm run server e o front para iniciar o projeto.
+
 npm run dev e entrar no IP mostrado pelo Vite no terminal.
 
-## Todo:
+## Funções da aplicação:
 
-Implementação do Phoenix
+Listar câmeras inseridas
+Remover câmera
+Adicionar nova câmera
 
-Subir o projeto online
+
+
