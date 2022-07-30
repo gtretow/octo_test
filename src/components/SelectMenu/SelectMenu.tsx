@@ -14,19 +14,27 @@ interface CameraProps {
   id: string;
 }
 
+let manufacturers = [
+    { "id": "9193939", "name": "Secure Câmeras Inc" },
+    { "id": "9293858", "name": "Surveillance Cams LLC" },
+    { "id": "9393747", "name": "DigiEye Group" },
+    { "id": "9494568", "name": "CâmeraFi Inc" },
+    { "id": "9596545", "name": "VidMasters Inc" }
+]
+
 const SelectMenu = ({ id, value, modifyManufacturer, error }: Props) => {
   const [options, setOptions] = useState<CameraProps[]>([]);
 
   useEffect(() => {
     async function fetchData() {
       let response: any;
-
+      //simulando fetch em banco para buscar usuários
       try {
-        response = await import("../../data/manufacturers.json");
-      } catch (error) {
+        response = manufacturers
+     } catch (error) {
         console.log("error getting manufacturers", error);
       }
-      let data = await response.companies;
+      let data = await response;
       setOptions(data);
     }
 

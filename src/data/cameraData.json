@@ -1,16 +1,11 @@
 {
   "cameraData": [
     {
-      "id": "c55ffc3c-c488-4948-aa6e-945ba786a1dc",
-      "name": "Company",
-      "manufacturer": "DigiEye Group",
-      "serialNumber": "DADSAD"
-    },
-    {
-      "id": "07dfb50f-da16-4d6f-83cb-06bd95063a6b",
-      "name": "Quarto",
-      "manufacturer": "Surveillance Cams LLC",
-      "serialNumber": "DADADA"
+      "serverId": 1659142867441,
+      "name": "Teste",
+      "manufacturer": "CâmeraFi Inc",
+      "serialNumber": "104I1341I34",
+      "id": 1
     }
   ]
 }

@@ -32,7 +32,7 @@ const Modal = ({ handleCameraModel, confirmCameraCreation }: props) => {
     const unique_id = new Date().valueOf();
 
     let newCamera: any = {
-      id: unique_id,
+      serverId: unique_id,
       name: cameraName,
       manufacturer: manufacturer,
       serialNumber: serialNumber,

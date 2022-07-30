@@ -13,6 +13,7 @@ interface CameraProps {
   name: string;
   serialNumber: string;
   manufacturer: string;
+  serverID?: string;
   id: string;
 }
 
@@ -29,14 +30,14 @@ const LandingPage: React.FC = () => {
     }
 
     async function fetchData() {
-      let data: CameraProps[];
+      let response: CameraProps[];
 
       try {
-        data = await getCameraData();
+        response = await getCameraData();
       } catch (error) {
         return console.log("getCameraData failed", error);
       }
-      setCameras(data);
+      setCameras(response);
     }
     fetchData();
 
@@ -107,21 +108,21 @@ const LandingPage: React.FC = () => {
                 {cameras?.map((items) => {
                   return (
                     <S.TableColumn
-                      onClick={() => openConfirmModal(items.id)}
-                      key={items.id}
+                      onClick={() => openConfirmModal((items.serverID || items.id))}
+                      key={(items.serverID || items.id)}
                     >
                       <S.TableItem>
-                        <S.TableContent>{items.name}</S.TableContent>
+                        <S.TableContent>{(items.serverID || items.id)}</S.TableContent>
                       </S.TableItem>
                       <S.TableItem>
-                        <S.TableContent>{items.manufacturer}</S.TableContent>
+                        <S.TableContent>{(items.serverID || items.id)}</S.TableContent>
                       </S.TableItem>
                       <S.TableItem>
-                        <S.TableContent>{items.serialNumber}</S.TableContent>
+                        <S.TableContent>{(items.serverID || items.id)}</S.TableContent>
                       </S.TableItem>
                       <S.TableItem>
                         <Button
-                          action={() => openConfirmModal(items.id)}
+                          action={() => openConfirmModal((items.serverID || items.id))}
                           width="80px"
                           height="30px"
                           title="Excluir"
