@@ -1,5 +1,7 @@
 # Informações pertinentes:
 
+## Live Server
+https://octo-test-pi.vercel.app/
 ## Teste feito para a empresa Octos.
 
 
